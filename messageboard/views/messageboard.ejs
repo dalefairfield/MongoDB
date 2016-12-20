@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>All Quotes</title>
+
+</head>
+<body>
+<h1>The Dojo Message Board</h1>
+
+
+<form action='/' method='POST'>
+    Your Name: <input type='text' name='name'>
+    Your Message: <input type='text' name='message'>
+    <br>
+    <br>
+    <input class="submit" type="submit" value="Add my quote">
+</form>
+<hr>
+<%for (var i =0; i<message.length; i++){%>
+  <p>Name: <%=message[i].name%></p>
+  <p>Message: <%=message[i].message%>  </p>
+
+  <%for (var j =0; j<message[i].comments.length; j++){%>
+    <p>Commenters Name: <%=message[i].comments[j].namecomment%></p>
+    <p>Comment: <%=message[i].comments[j].messagecomment%>  </p>
+
+  <%}%>
+  <form action='/<%=message[i]._id%>' method='POST'>
+      Your Name: <input type='text' name='namecomment'>
+      Your Comment: <input type='text' name='messagecomment'>
+      <br>
+      <br>
+      <input class="submit" type="submit" value="Add my comment">
+  </form>
+  <hr>
+<%}%>
+
+</body>
+</html>

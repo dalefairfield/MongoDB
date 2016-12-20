@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>Mongoose Dashboard</title>
+
+</head>
+<body>
+<p>Index</p>
+
+<%for (var i =0; i<list.length; i++){%>
+  <p><a href="/animal/<%=list[i]._id%>"><%=list[i].type%></a>
+  <a href="/animal/edit/<%=list[i]._id%>">edit</a></p>
+  <form action='/animal/destroy/<%=list[i]._id%>' method='POST'>
+      <input class="submit" type="submit" value="delete">
+  </form>
+<%}%>
+
+</body>
+</html>
